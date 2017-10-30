@@ -13,5 +13,6 @@
 - (void)PushNum : (double)num;
 - (void)PushOperator : (NSString*_Nonnull)operation;
 - (double)Calculate;
+- (void)Clear;
 
 @end

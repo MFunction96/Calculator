@@ -33,4 +33,10 @@
 {
     return wrapped.calculate();
 }
+
+- (void)Clear
+{
+    wrapped.clear();
+}
+
 @end

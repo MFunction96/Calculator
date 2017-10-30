@@ -27,6 +27,7 @@ class Shell {
     
     func Clear() {
         buffer.Clear()
+        core.clear();
         formula.text = "0"
     }
 }
