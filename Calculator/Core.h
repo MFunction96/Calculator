@@ -10,7 +10,8 @@
 
 @interface Core : NSObject
 
-- (nonnull instancetype)init;
-- (void)dealloc;
+- (void)PushNum : (double)num;
+- (void)PushOperator : (NSString*_Nonnull)operation;
+- (double)Calculate;
 
 @end

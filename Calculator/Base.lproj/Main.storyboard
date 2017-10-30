@@ -445,7 +445,7 @@
                         <outlet property="BtnPow" destination="ip9-F2-zwq" id="Szd-Xi-BUm"/>
                         <outlet property="BtnRBracket" destination="hnv-UB-5gh" id="Tax-xO-ADH"/>
                         <outlet property="BtnSin" destination="744-WR-DjR" id="mMk-jo-zrC"/>
-                        <outlet property="Tfformula" destination="ZCQ-e9-j8c" id="rt7-me-fk8"/>
+                        <outlet property="TfFormula" destination="ZCQ-e9-j8c" id="gQW-7c-D52"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

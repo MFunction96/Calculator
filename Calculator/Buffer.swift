@@ -9,10 +9,9 @@
 import Foundation
 
 public class Buffer {
-    private var _data : Double
-    public init() {
-        _data = 0.0
-    }
+    
+    private var _data = 0.0
+    
     public func Add(x : Double) {
         _data += x
     }

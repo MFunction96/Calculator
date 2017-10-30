@@ -12,25 +12,25 @@
 
 @interface Core () {
 @private
-    CoreCpp * __obj;
+    core_cpp wrapped;
 }
 @end
 
 @implementation Core
 
-- (instancetype)init
+- (void)PushNum:(double)num
 {
-    self = [super init];
-    if (self) {
-        __obj = new CoreCpp();
-    }
-    return self;
+    wrapped.push_num(num);
 }
 
-- (void)dealloc
+- (void)PushOperator:(NSString*_Nonnull)operation
 {
-    delete __obj;
-    __obj = NULL;
+    std::string cpp_str([operation UTF8String], [operation lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
+    wrapped.push_operator(cpp_str);
 }
 
+- (double)Calculate
+{
+    return wrapped.calculate();
+}
 @end

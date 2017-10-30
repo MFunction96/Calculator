@@ -1,21 +1,24 @@
-//
-//  CoreCpp.hpp
-//  Calculator
-//
-//  Created by MFunction on 2017/10/26.
-//  Copyright © 2017年 MFunction. All rights reserved.
-//
+#pragma once
+#include <stack>
+#include <string>
+using namespace std;
 
-#ifndef CoreCpp_hpp
-#define CoreCpp_hpp
-
-#include <stdio.h>
-
-class CoreCpp
+class core_cpp
 {
+	const double eps_ = 1e-6;
+	const double zero_ = 0.0;
+	const int inf_ = 0x7fffffff;
+	const string operator_[6] = { "+","-","*","/","(",")"};
+	double buffer_;
+	stack<double> num_;
+	stack<string> op_;
+	bool equal_to(const double & n1, const double & n2) const;
+	void calculate(const string & operation);
 public:
-    CoreCpp();
-    ~CoreCpp();
+	core_cpp();
+	~core_cpp();
+	void push_num(const double num);
+	void push_operator(const string & operation);
+	double calculate();
+	void clear();
 };
-
-#endif /* CoreCpp_hpp */

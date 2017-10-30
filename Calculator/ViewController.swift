@@ -43,10 +43,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var Btn0: UIButton!
     @IBOutlet weak var BtnDot: UIButton!
     @IBOutlet weak var BtnNegative: UIButton!
-    @IBOutlet weak var Tfformula: UITextField!
+    @IBOutlet weak var TfFormula: UITextField!
+    
+    var shell = Shell()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        shell.SetTextField(textField: TfFormula)
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,6 +62,7 @@ class ViewController: UIViewController {
     @IBAction func AcE(_ sender: Any) {
     }
     @IBAction func AcClear(_ sender: Any) {
+        
     }
     @IBAction func AcLBracket(_ sender: Any) {
     }

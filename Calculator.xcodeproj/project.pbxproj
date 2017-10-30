@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03BCA07F1FA1DC170040E63E /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BCA07E1FA1DC170040E63E /* Shell.swift */; };
 		03ED07931FA1799200FDA10C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED07921FA1799200FDA10C /* AppDelegate.swift */; };
 		03ED07951FA1799200FDA10C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED07941FA1799200FDA10C /* ViewController.swift */; };
 		03ED07981FA1799200FDA10C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03ED07961FA1799200FDA10C /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03BCA07E1FA1DC170040E63E /* Shell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shell.swift; sourceTree = "<group>"; };
 		03ED078F1FA1799200FDA10C /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03ED07921FA1799200FDA10C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03ED07941FA1799200FDA10C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				03ED079B1FA1799200FDA10C /* LaunchScreen.storyboard */,
 				03ED079E1FA1799200FDA10C /* Info.plist */,
 				03ED07C01FA17ABB00FDA10C /* Calculator-Bridging-Header.h */,
+				03BCA07E1FA1DC170040E63E /* Shell.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03BCA07F1FA1DC170040E63E /* Shell.swift in Sources */,
 				03ED07C81FA17ABC00FDA10C /* Core.mm in Sources */,
 				03ED07C91FA17ABC00FDA10C /* CoreCpp.cpp in Sources */,
 				03ED07951FA1799200FDA10C /* ViewController.swift in Sources */,
