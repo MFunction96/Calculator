@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03BCA07F1FA1DC170040E63E /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BCA07E1FA1DC170040E63E /* Shell.swift */; };
+		03C2F0B61FA85149008F7584 /* corecpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03C2F0B01FA85149008F7584 /* corecpp.cpp */; };
+		03C2F0B71FA85149008F7584 /* shellcpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03C2F0B11FA85149008F7584 /* shellcpp.cpp */; };
+		03C2F0B81FA85149008F7584 /* buffercpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03C2F0B21FA85149008F7584 /* buffercpp.cpp */; };
+		03C2F0C01FA854B3008F7584 /* shell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 03C2F0BF1FA854B3008F7584 /* shell.mm */; };
 		03ED07931FA1799200FDA10C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED07921FA1799200FDA10C /* AppDelegate.swift */; };
 		03ED07951FA1799200FDA10C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED07941FA1799200FDA10C /* ViewController.swift */; };
 		03ED07981FA1799200FDA10C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03ED07961FA1799200FDA10C /* Main.storyboard */; };
@@ -15,9 +18,6 @@
 		03ED079D1FA1799200FDA10C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03ED079B1FA1799200FDA10C /* LaunchScreen.storyboard */; };
 		03ED07A81FA1799200FDA10C /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED07A71FA1799200FDA10C /* CalculatorTests.swift */; };
 		03ED07B31FA1799200FDA10C /* CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED07B21FA1799200FDA10C /* CalculatorUITests.swift */; };
-		03ED07C71FA17ABC00FDA10C /* Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED07C31FA17ABB00FDA10C /* Buffer.swift */; };
-		03ED07C81FA17ABC00FDA10C /* Core.mm in Sources */ = {isa = PBXBuildFile; fileRef = 03ED07C51FA17ABC00FDA10C /* Core.mm */; };
-		03ED07C91FA17ABC00FDA10C /* CoreCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03ED07C61FA17ABC00FDA10C /* CoreCpp.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		03BCA07E1FA1DC170040E63E /* Shell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shell.swift; sourceTree = "<group>"; };
+		03C2F0B01FA85149008F7584 /* corecpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = corecpp.cpp; sourceTree = "<group>"; };
+		03C2F0B11FA85149008F7584 /* shellcpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shellcpp.cpp; sourceTree = "<group>"; };
+		03C2F0B21FA85149008F7584 /* buffercpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buffercpp.cpp; sourceTree = "<group>"; };
+		03C2F0B91FA85416008F7584 /* corecpp.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = corecpp.hpp; sourceTree = "<group>"; };
+		03C2F0BA1FA85417008F7584 /* buffercpp.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = buffercpp.hpp; sourceTree = "<group>"; };
+		03C2F0BB1FA85417008F7584 /* shellcpp.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = shellcpp.hpp; sourceTree = "<group>"; };
+		03C2F0BC1FA8546C008F7584 /* shell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shell.h; sourceTree = "<group>"; };
+		03C2F0BF1FA854B3008F7584 /* shell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = shell.mm; sourceTree = "<group>"; };
 		03ED078F1FA1799200FDA10C /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03ED07921FA1799200FDA10C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03ED07941FA1799200FDA10C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,11 +60,6 @@
 		03ED07B21FA1799200FDA10C /* CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorUITests.swift; sourceTree = "<group>"; };
 		03ED07B41FA1799200FDA10C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03ED07C01FA17ABB00FDA10C /* Calculator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Calculator-Bridging-Header.h"; sourceTree = "<group>"; };
-		03ED07C11FA17ABB00FDA10C /* CoreCpp.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CoreCpp.hpp; sourceTree = "<group>"; };
-		03ED07C31FA17ABB00FDA10C /* Buffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buffer.swift; sourceTree = "<group>"; };
-		03ED07C41FA17ABB00FDA10C /* Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
-		03ED07C51FA17ABC00FDA10C /* Core.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Core.mm; sourceTree = "<group>"; };
-		03ED07C61FA17ABC00FDA10C /* CoreCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoreCpp.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,19 +110,21 @@
 		03ED07911FA1799200FDA10C /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				03ED07C31FA17ABB00FDA10C /* Buffer.swift */,
-				03ED07C41FA17ABB00FDA10C /* Core.h */,
-				03ED07C51FA17ABC00FDA10C /* Core.mm */,
-				03ED07C61FA17ABC00FDA10C /* CoreCpp.cpp */,
-				03ED07C11FA17ABB00FDA10C /* CoreCpp.hpp */,
+				03C2F0B21FA85149008F7584 /* buffercpp.cpp */,
+				03C2F0B01FA85149008F7584 /* corecpp.cpp */,
+				03C2F0B11FA85149008F7584 /* shellcpp.cpp */,
+				03ED07C01FA17ABB00FDA10C /* Calculator-Bridging-Header.h */,
+				03C2F0BC1FA8546C008F7584 /* shell.h */,
+				03C2F0BA1FA85417008F7584 /* buffercpp.hpp */,
+				03C2F0B91FA85416008F7584 /* corecpp.hpp */,
+				03C2F0BB1FA85417008F7584 /* shellcpp.hpp */,
+				03C2F0BF1FA854B3008F7584 /* shell.mm */,
+				03ED079E1FA1799200FDA10C /* Info.plist */,
 				03ED07921FA1799200FDA10C /* AppDelegate.swift */,
 				03ED07941FA1799200FDA10C /* ViewController.swift */,
-				03ED07961FA1799200FDA10C /* Main.storyboard */,
 				03ED07991FA1799200FDA10C /* Assets.xcassets */,
 				03ED079B1FA1799200FDA10C /* LaunchScreen.storyboard */,
-				03ED079E1FA1799200FDA10C /* Info.plist */,
-				03ED07C01FA17ABB00FDA10C /* Calculator-Bridging-Header.h */,
-				03BCA07E1FA1DC170040E63E /* Shell.swift */,
+				03ED07961FA1799200FDA10C /* Main.storyboard */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -128,8 +132,8 @@
 		03ED07A61FA1799200FDA10C /* CalculatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				03ED07A71FA1799200FDA10C /* CalculatorTests.swift */,
 				03ED07A91FA1799200FDA10C /* Info.plist */,
+				03ED07A71FA1799200FDA10C /* CalculatorTests.swift */,
 			);
 			path = CalculatorTests;
 			sourceTree = "<group>";
@@ -137,8 +141,8 @@
 		03ED07B11FA1799200FDA10C /* CalculatorUITests */ = {
 			isa = PBXGroup;
 			children = (
-				03ED07B21FA1799200FDA10C /* CalculatorUITests.swift */,
 				03ED07B41FA1799200FDA10C /* Info.plist */,
+				03ED07B21FA1799200FDA10C /* CalculatorUITests.swift */,
 			);
 			path = CalculatorUITests;
 			sourceTree = "<group>";
@@ -278,12 +282,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03BCA07F1FA1DC170040E63E /* Shell.swift in Sources */,
-				03ED07C81FA17ABC00FDA10C /* Core.mm in Sources */,
-				03ED07C91FA17ABC00FDA10C /* CoreCpp.cpp in Sources */,
+				03C2F0C01FA854B3008F7584 /* shell.mm in Sources */,
+				03C2F0B71FA85149008F7584 /* shellcpp.cpp in Sources */,
+				03C2F0B61FA85149008F7584 /* corecpp.cpp in Sources */,
+				03C2F0B81FA85149008F7584 /* buffercpp.cpp in Sources */,
 				03ED07951FA1799200FDA10C /* ViewController.swift in Sources */,
 				03ED07931FA1799200FDA10C /* AppDelegate.swift in Sources */,
-				03ED07C71FA17ABC00FDA10C /* Buffer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
