@@ -19,6 +19,8 @@ public:
 	~core_cpp();
 	void push_num(const double num);
 	void push_operator(const string & operation);
+    string get_op_top() const;
+    unsigned long get_num_size() const;
 	double calculate();
 	void clear();
 };

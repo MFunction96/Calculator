@@ -16,7 +16,12 @@ string shell_cpp::trim(double num) const
     {
         while (str.length() > 1)
         {
-            if (str.back() == '0' || str.back() == '.') str.pop_back();
+            if (str.back() == '0') str.pop_back();
+            else if (str.back() == '.')
+            {
+                str.pop_back();
+                break;
+            }
             else break;
         }
     }
@@ -100,6 +105,19 @@ void shell_cpp::push_num(const string & n)
 
 void shell_cpp::push_operator(const int index)
 {
+    if (index == 4)
+    {
+        if (core_.get_op_top() != core_.operators[4] && operator_ < 0) return;
+        if (length_) return;
+        if (core_.get_num_size())
+        {
+            core_.push_operator(core_.operators[operator_]);
+            formula_ += " " + core_.operators[operator_] + " " + core_.operators[index];
+        }
+        else formula_ = core_.operators[index];
+        core_.push_operator(core_.operators[index]);
+        return;
+    }
 	if (operator_ < 0)
 	{
 		core_.push_num(atof(buffer_.c_str()));

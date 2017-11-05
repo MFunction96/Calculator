@@ -71,6 +71,11 @@ void core_cpp::push_operator(const string & operation)
 	op_.push(operation);
 }
 
+string core_cpp::get_op_top() const
+{
+    return op_.size() ? op_.top() : "";
+}
+
 double core_cpp::calculate()
 {
 	while (op_.size())
@@ -78,8 +83,14 @@ double core_cpp::calculate()
         auto op = op_.top();
         calculate(op);
         buffer_ = num_.top();
+        num_.pop();
 	}
-	return num_.top();
+    return buffer_;
+}
+
+unsigned long core_cpp::get_num_size() const
+{
+    return num_.size();
 }
 
 void core_cpp::clear()
