@@ -55,7 +55,6 @@
     {
         throw exception();
     }
-    
 }
 
 - (void)push_operator:(int)index
@@ -75,21 +74,27 @@
     wrapped.push_dot();
 }
 
-- (double)get_num
+- (void)push_const:(NSString*)c
 {
-    return wrapped.get_num();
+    std::string cpp_str([c UTF8String], [c lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
+    wrapped.push_const(cpp_str);
 }
 
-- (double)calculate
+- (void)negative
 {
-    try
-    {
-        return wrapped.calculate();
-    }
-    catch (exception e)
-    {
-        throw exception();
-    }
+    wrapped.negative();
+}
+
+- (bool)check
+{
+    return wrapped.check();
+}
+
+- (NSString*)calculate
+{
+    std::string str = std::string(wrapped.calculate());
+    NSString *nsstr= [NSString stringWithCString:str.c_str() encoding:[NSString defaultCStringEncoding]];
+    return nsstr;
 }
 
 - (NSString*)m_record

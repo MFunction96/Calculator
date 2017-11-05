@@ -54,44 +54,28 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func AcPi(_ sender: Any) {
-        
+        sh.push_const("PI")
+        Refrush()
     }
     @IBAction func AcE(_ sender: Any) {
-        
+        sh.push_const("E")
+        Refrush()
     }
     @IBAction func AcClear(_ sender: Any) {
         sh.clear()
-        TfResult.text = sh.get_buffer()
-        TfFormula.text = sh.get_formula()
+        Refrush()
     }
     @IBAction func AcLBracket(_ sender: Any) {
-        do
-        {
-            try sh.push_operator(4)
-        }
-        catch
-        {
-            
-        }
-        TfResult.text = sh.get_buffer()
-        TfFormula.text = sh.get_formula()
+        sh.push_operator(4)
+        Refrush()
     }
     @IBAction func AcRBracket(_ sender: Any) {
-        do
-        {
-            try sh.push_operator(5)
-        }
-        catch
-        {
-            
-        }
-        TfResult.text = sh.get_buffer()
-        TfFormula.text = sh.get_formula()
+        sh.push_operator(5)
+        Refrush()
     }
     @IBAction func AcBackspace(_ sender: Any) {
         sh.backspace()
-        TfResult.text = sh.get_buffer()
-        TfFormula.text = sh.get_formula()
+        Refrush()
     }
     @IBAction func AcMClear(_ sender: Any) {
         sh.m_clear()
@@ -99,72 +83,40 @@ class ViewController: UIViewController {
     }
     @IBAction func Ac7(_ sender: Any) {
         sh.push_num("7")
-        TfResult.text = sh.get_buffer()
-        TfFormula.text = sh.get_formula()
+        Refrush()
     }
     @IBAction func Ac8(_ sender: Any) {
         sh.push_num("8")
-        TfResult.text = sh.get_buffer()
-        TfFormula.text = sh.get_formula()
+        Refrush()
     }
     @IBAction func Ac9(_ sender: Any) {
         sh.push_num("9")
-        TfResult.text = sh.get_buffer()
-        TfFormula.text = sh.get_formula()
+        Refrush()
     }
     @IBAction func AcDivide(_ sender: Any) {
-        do
-        {
-            try sh.push_operator(3)
-        }
-        catch
-        {
-        
-        }
-        TfResult.text = sh.get_buffer()
-        TfFormula.text = sh.get_formula()
+        sh.push_operator(3)
     }
     @IBAction func AcMRecord(_ sender: Any) {
         TfResult.text = sh.m_record()
     }
     @IBAction func Ac4(_ sender: Any) {
         sh.push_num("4")
-        TfResult.text = sh.get_buffer()
-        TfFormula.text = sh.get_formula()
+        Refrush()
     }
     @IBAction func Ac5(_ sender: Any) {
         sh.push_num("5")
-        TfResult.text = sh.get_buffer()
-        TfFormula.text = sh.get_formula()
+        Refrush()
     }
     @IBAction func Ac6(_ sender: Any) {
         sh.push_num("6")
-        TfResult.text = sh.get_buffer()
-        TfFormula.text = sh.get_formula()
+        Refrush()
     }
     @IBAction func AcMinus(_ sender: Any) {
-        do
-        {
-            try sh.push_operator(1)
-        }
-        catch
-        {
-            
-        }
-        TfResult.text = sh.get_buffer()
-        TfFormula.text = sh.get_formula()
+        sh.push_operator(1)
     }
     @IBAction func AcMultiple(_ sender: Any) {
-        do
-        {
-            try sh.push_operator(2)
-        }
-        catch
-        {
-            
-        }
-        TfResult.text = sh.get_buffer()
-        TfFormula.text = sh.get_formula()
+        sh.push_operator(2)
+        Refrush()
     }
     @IBAction func AcMPlus(_ sender: Any) {
         sh.m_add(TfResult.text)
@@ -172,32 +124,23 @@ class ViewController: UIViewController {
     }
     @IBAction func Ac1(_ sender: Any) {
         sh.push_num("1")
-        TfFormula.text = sh.get_buffer()
-        TfFormula.text = sh.get_formula()
+        Refrush()
     }
     @IBAction func Ac2(_ sender: Any) {
         sh.push_num("2")
-        TfResult.text = sh.get_buffer()
-        TfFormula.text = sh.get_formula()
+        Refrush()
     }
     @IBAction func Ac3(_ sender: Any) {
         sh.push_num("3")
-        TfResult.text = sh.get_buffer()
-        TfFormula.text = sh.get_formula()
+        Refrush()
     }
     @IBAction func AcPlus(_ sender: Any) {
-        do
-        {
-            try sh.push_operator(0)
-        }
-        catch
-        {
-            
-        }
-        TfResult.text = sh.get_buffer()
-        TfFormula.text = sh.get_formula()
+        sh.push_operator(0)
+        Refrush()
     }
     @IBAction func AcEqual(_ sender: Any) {
+        sh.calculate()
+        Refrush()
     }
     @IBAction func AcMMinus(_ sender: Any) {
         sh.m_minus(TfResult.text)
@@ -205,15 +148,28 @@ class ViewController: UIViewController {
     }
     @IBAction func Ac0(_ sender: Any) {
         sh.push_num("0")
-        TfResult.text = sh.get_buffer()
-        TfFormula.text = sh.get_formula()
+        Refrush()
     }
     @IBAction func AcDot(_ sender: Any) {
         sh.push_dot()
-        TfResult.text = sh.get_buffer()
-        TfFormula.text = sh.get_formula()
+        Refrush()
     }
     @IBAction func AcNegative(_ sender: Any) {
+        sh.negative()
+        Refrush()
+    }
+    
+    func Refrush() {
+        if (sh.check())
+        {
+            TfResult.text = "0"
+            TfFormula.text = "Error Expression!"
+        }
+        else
+        {
+            TfResult.text = sh.get_buffer()
+            TfFormula.text = sh.get_formula()
+        }
     }
     
 }

@@ -7,15 +7,20 @@ using namespace std;
 class shell_cpp
 {
 	bool dot_;
+    bool const_;
+    bool error_;
 	int operator_;
 	int length_;
+    int braket_;
 	string buffer_;
 	core_cpp core_;
 	buffer_cpp memory_;
     string formula_;
+    string trim(double num) const;
 public:
     const string operators[6] = {"+","-","x","/","(",")"};
     const string pi = to_string(acos(-1));
+    const string e = to_string(exp(1));
     const string zero = "0";
 	shell_cpp();
 	~shell_cpp();
@@ -27,8 +32,10 @@ public:
 	void push_num(const string & n);
 	void push_operator(const int index);
 	void push_dot();
-	double get_num() const;
-	double calculate();
+    void push_const(string & c);
+    void negative();
+    bool check() const;
+	string calculate();
 	string m_record() const;
 	string get_buffer() const;
     string get_formula() const;

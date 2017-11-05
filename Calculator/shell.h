@@ -19,8 +19,10 @@
 - (void)push_num:(NSString*)num;
 - (void)push_operator:(int)index;
 - (void)push_dot;
-- (double)get_num;
-- (double)calculate;
+- (void)push_const:(NSString*)c;
+- (void)negative;
+- (bool)check;
+- (NSString*)calculate;
 - (NSString*)m_record;
 - (NSString*)get_buffer;
 - (NSString*)get_formula;
