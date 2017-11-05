@@ -75,13 +75,9 @@ double core_cpp::calculate()
 {
 	while (op_.size())
 	{
-		for (auto op = op_.top(); op_.size(); op = op_.top())
-		{
-			op_.pop();
-			calculate(op);
-			buffer_ = num_.top();
-			num_.pop();
-		}
+        auto op = op_.top();
+        calculate(op);
+        buffer_ = num_.top();
 	}
 	return num_.top();
 }

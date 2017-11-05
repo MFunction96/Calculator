@@ -32,8 +32,9 @@ public:
 	void push_num(const string & n);
 	void push_operator(const int index);
 	void push_dot();
-    void push_const(string & c);
+    void push_const(const string & c);
     void negative();
+    void set_buffer(const string & num);
     bool check() const;
 	string calculate();
 	string m_record() const;

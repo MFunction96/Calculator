@@ -21,6 +21,7 @@
 - (void)push_dot;
 - (void)push_const:(NSString*)c;
 - (void)negative;
+- (void)set_buffer:(NSString*)num;
 - (bool)check;
 - (NSString*)calculate;
 - (NSString*)m_record;

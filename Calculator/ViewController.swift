@@ -139,8 +139,15 @@ class ViewController: UIViewController {
         Refrush()
     }
     @IBAction func AcEqual(_ sender: Any) {
-        sh.calculate()
-        Refrush()
+        let ans = sh.calculate()
+        if (sh.check())
+        {
+            TfResult.text = "0"
+            TfFormula.text = "Error Expression!"
+        }
+        TfResult.text = ans
+        TfFormula.text = sh.get_formula()
+        sh.clear()
     }
     @IBAction func AcMMinus(_ sender: Any) {
         sh.m_minus(TfResult.text)

@@ -47,26 +47,12 @@
 - (void)push_num:(NSString*)num
 {
     std::string cpp_str([num UTF8String], [num lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-    try
-    {
-        wrapped.push_num(cpp_str);
-    }
-    catch (exception e)
-    {
-        throw exception();
-    }
+    wrapped.push_num(cpp_str);
 }
 
 - (void)push_operator:(int)index
 {
-    try
-    {
-        wrapped.push_operator(index);
-    }
-    catch (exception e)
-    {
-        throw exception();
-    }
+    wrapped.push_operator(index);
 }
 
 - (void)push_dot
@@ -83,6 +69,12 @@
 - (void)negative
 {
     wrapped.negative();
+}
+
+- (void)set_buffer:(NSString *)num
+{
+    std::string cpp_str([num UTF8String], [num lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
+    wrapped.set_buffer(cpp_str);
 }
 
 - (bool)check

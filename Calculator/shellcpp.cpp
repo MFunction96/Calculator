@@ -121,7 +121,7 @@ void shell_cpp::push_dot()
 	}
 }
 
-void shell_cpp::push_const(string & c)
+void shell_cpp::push_const(const string & c)
 {
     if (buffer_ == zero)
     {
@@ -138,6 +138,11 @@ void shell_cpp::negative()
     else buffer_ = "-" + buffer_;
 }
 
+void shell_cpp::set_buffer(const string & num)
+{
+    buffer_ = num;
+}
+
 bool shell_cpp::check() const
 {
     return error_;
@@ -145,10 +150,17 @@ bool shell_cpp::check() const
 
 string shell_cpp::calculate()
 {
+    formula_ += " " + buffer_;
+    while (braket_)
+    {
+        formula_ += " )";
+        braket_--;
+    }
+    formula_ += " =";
     double ans = core_.zero;
     try {
+        core_.push_num(atof(buffer_.c_str()));
         ans = core_.calculate();
-        clear();
     } catch (exception e) {
         error_ = true;
     }
