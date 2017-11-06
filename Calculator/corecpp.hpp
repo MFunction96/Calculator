@@ -22,5 +22,6 @@ public:
     string get_op_top() const;
     unsigned long get_num_size() const;
 	double calculate();
+    pair<int, double> braket(const double num);
 	void clear();
 };

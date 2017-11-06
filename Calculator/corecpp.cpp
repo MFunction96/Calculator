@@ -2,7 +2,7 @@
 
 bool core_cpp::equal_to(const double & n1, const double & n2) const
 {
-	return n1 - n2 > eps && n2 - n1 > eps;
+	return n1 - n2 < eps && n2 - n1 < eps;
 }
 
 void core_cpp::calculate(const string & operation)
@@ -46,18 +46,6 @@ void core_cpp::push_operator(const string & operation)
 		op_.push(operation);
 		return;
 	}
-	if (operation == operators[5])
-	{
-		for (auto op = op_.top(); op == operators[4]; op = op_.top())
-		{
-			op_.pop();
-			calculate(op);
-			buffer_ = num_.top();
-			num_.pop();
-		}
-		op_.pop();
-		return;
-	}
 	if (op_.size() == 0 || op_.top() == operators[4] || 
 		((operation == operators[2] || operation == operators[3]) && 
 		(op_.top() == operators[0] || op_.top() == operators[1])))
@@ -90,7 +78,27 @@ double core_cpp::calculate()
 
 unsigned long core_cpp::get_num_size() const
 {
-    return num_.size();
+    return equal_to(buffer_, zero) ? num_.size() : num_.size() + 1;
+}
+
+pair<int, double> core_cpp::braket(const double num)
+{
+    push_num(num);
+    while (op_.top() != operators[4])
+    {
+        auto op = op_.top();
+        calculate(op);
+        buffer_ = num_.top();
+        num_.pop();
+    }
+    op_.pop();
+    double n = buffer_;
+    buffer_ = zero;
+    if (op_.size() == 0) return pair<int, double>(-1, n);
+    if (op_.top() == operators[0]) return pair<int, double>(0, n);
+    if (op_.top() == operators[1]) return pair<int, double>(1, n);
+    if (op_.top() == operators[2]) return pair<int, double>(2, n);
+    return pair<int, double>(3, n);
 }
 
 void core_cpp::clear()

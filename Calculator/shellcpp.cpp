@@ -64,6 +64,7 @@ void shell_cpp::clear()
 	core_.clear();
     formula_ = "";
     braket_ = 0;
+    merge_ = false;
 }
 
 void shell_cpp::m_add(const string & num)
@@ -88,8 +89,6 @@ void shell_cpp::push_num(const string & n)
         {
             core_.push_operator(core_.operators[operator_]);
             formula_ += " " + operators[operator_];
-            if (operator_ == 4) braket_++;
-            else if (operator_ == 5) braket_--;
             operator_ = -1;
         }
         if (const_) return;
@@ -107,8 +106,8 @@ void shell_cpp::push_operator(const int index)
 {
     if (index == 4)
     {
-        if (core_.get_op_top() != core_.operators[4] && operator_ < 0) return;
         if (length_) return;
+        if (core_.get_num_size() && core_.get_op_top() != core_.operators[4] && operator_ < 0) return;
         if (core_.get_num_size())
         {
             core_.push_operator(core_.operators[operator_]);
@@ -116,12 +115,29 @@ void shell_cpp::push_operator(const int index)
         }
         else formula_ = core_.operators[index];
         core_.push_operator(core_.operators[index]);
+        operator_ = -1;
+        braket_++;
+        return;
+    }
+    if (index == 5)
+    {
+        if (length_ < 1 || braket_ < 1) return;
+        formula_ += " " + buffer_ + " )";
+        const auto p = core_.braket(atof(buffer_.c_str()));
+        operator_ = p.first;
+        buffer_ = trim(p.second);
+        dot_ = false;
+        const_ = false;
+        length_ = 0;
+        braket_--;
+        merge_ = true;
         return;
     }
 	if (operator_ < 0)
 	{
 		core_.push_num(atof(buffer_.c_str()));
-        formula_ += " " + buffer_;
+        if (!merge_) formula_ += " " + buffer_;
+        merge_ = false;
 		buffer_ = zero;
 		dot_ = false;
         const_ = false;
@@ -168,7 +184,7 @@ bool shell_cpp::check() const
 
 string shell_cpp::calculate()
 {
-    formula_ += " " + buffer_;
+    if (!merge_) formula_ += " " + buffer_;
     while (braket_)
     {
         formula_ += " )";

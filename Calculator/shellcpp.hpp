@@ -9,6 +9,7 @@ class shell_cpp
 	bool dot_;
     bool const_;
     bool error_;
+    bool merge_;
 	int operator_;
 	int length_;
     int braket_;
