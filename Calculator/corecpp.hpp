@@ -8,7 +8,6 @@ class core_cpp
 	double buffer_;
 	stack<double> num_;
 	stack<string> op_;
-	bool equal_to(const double & n1, const double & n2) const;
 	void calculate(const string & operation);
 public:
 	const string operators[6] = { "+","-","*","/","(",")" };
@@ -17,11 +16,12 @@ public:
 	const int inf = 0x7fffffff;
 	core_cpp();
 	~core_cpp();
+    void clear();
 	void push_num(const double num);
 	void push_operator(const string & operation);
+    bool equal_to(const double & n1, const double & n2) const;
     string get_op_top() const;
     unsigned long get_num_size() const;
 	double calculate();
-    pair<int, double> braket(const double num);
-	void clear();
+    double braket(const double num);
 };

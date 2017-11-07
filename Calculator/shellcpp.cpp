@@ -107,25 +107,28 @@ void shell_cpp::push_operator(const int index)
     if (index == 4)
     {
         if (length_) return;
-        if (core_.get_num_size() && core_.get_op_top() != core_.operators[4] && operator_ < 0) return;
         if (core_.get_num_size())
         {
             core_.push_operator(core_.operators[operator_]);
-            formula_ += " " + core_.operators[operator_] + " " + core_.operators[index];
+            formula_ += " " + core_.operators[operator_];
         }
-        else formula_ = core_.operators[index];
-        core_.push_operator(core_.operators[index]);
-        operator_ = -1;
+        operator_ = 4;
         braket_++;
+        merge_ = false;
+        buffer_ = zero;
+        dot_ = false;
+        const_ = false;
+        length_ = 0;
         return;
     }
     if (index == 5)
     {
-        if (length_ < 1 || braket_ < 1) return;
-        formula_ += " " + buffer_ + " )";
+        if ((length_ < 1 && !merge_) || braket_ < 1) return;
+        if (!merge_) formula_ += " " + buffer_;
+        formula_ += " )";
         const auto p = core_.braket(atof(buffer_.c_str()));
-        operator_ = p.first;
-        buffer_ = trim(p.second);
+        operator_ = -1;
+        buffer_ = trim(p);
         dot_ = false;
         const_ = false;
         length_ = 0;
@@ -143,6 +146,7 @@ void shell_cpp::push_operator(const int index)
         const_ = false;
         length_ = 0;
 	}
+    merge_ = false;
 	operator_ = index;
 }
 
@@ -188,9 +192,8 @@ string shell_cpp::calculate()
     while (braket_)
     {
         formula_ += " )";
-        braket_--;
+        push_operator(5);
     }
-    formula_ += " =";
     double ans = core_.zero;
     try {
         core_.push_num(atof(buffer_.c_str()));
@@ -198,6 +201,7 @@ string shell_cpp::calculate()
     } catch (exception e) {
         error_ = true;
     }
+    if (!core_.equal_to(ans, core_.zero)) formula_ += " =";
 	return trim(ans);
 }
 

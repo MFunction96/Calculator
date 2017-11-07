@@ -81,7 +81,7 @@ unsigned long core_cpp::get_num_size() const
     return equal_to(buffer_, zero) ? num_.size() : num_.size() + 1;
 }
 
-pair<int, double> core_cpp::braket(const double num)
+double core_cpp::braket(const double num)
 {
     push_num(num);
     while (op_.top() != operators[4])
@@ -94,11 +94,7 @@ pair<int, double> core_cpp::braket(const double num)
     op_.pop();
     double n = buffer_;
     buffer_ = zero;
-    if (op_.size() == 0) return pair<int, double>(-1, n);
-    if (op_.top() == operators[0]) return pair<int, double>(0, n);
-    if (op_.top() == operators[1]) return pair<int, double>(1, n);
-    if (op_.top() == operators[2]) return pair<int, double>(2, n);
-    return pair<int, double>(3, n);
+    return n;
 }
 
 void core_cpp::clear()
